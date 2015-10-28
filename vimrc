@@ -39,7 +39,7 @@ syntax enable
 set background=dark
 "colorscheme crayon
 "colorscheme material
-colorscheme solarized
+"colorscheme solarized
 "colorscheme Desert
 "colorscheme railscasts
 "colorscheme Tomorrow "white background
@@ -67,9 +67,6 @@ let g:Powerline_symbols = 'fancy'
 " Kills beeps
 set noeb vb t_vb=
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
 " for terminal
 set t_Co=256
 
@@ -77,30 +74,33 @@ set t_Co=256
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
- " mappings
- map <Leader>r :set relativenumber!<CR>
- map <Leader>e :set number<CR>
- map <Leader>n :set nonumber<CR>
+" mappings
+map <Leader>r :set relativenumber!<CR>
+map <Leader>e :set number<CR>
+map <Leader>n :set nonumber<CR>
 
- " map vertical resizing
- map <Leader>v4 :exe "vertical resize 400"<CR>
- map <Leader>v3 :exe "vertical resize 300"<CR>
- map <Leader>v2 :exe "vertical resize 200"<CR>
- map <Leader>v1 :exe "vertical resize 100"<CR>
- map <Leader>vm :exe "vertical resize 50"<CR>
+" map vertical resizing
+map <Leader>v4 :exe "vertical resize 400"<CR>
+map <Leader>v3 :exe "vertical resize 300"<CR>
+map <Leader>v2 :exe "vertical resize 200"<CR>
+map <Leader>v1 :exe "vertical resize 100"<CR>
+map <Leader>vm :exe "vertical resize 50"<CR>
 
- " map pasting
- map <Leader>p "0p<CR>
+" map pasting
+map <Leader>p "0p<CR>
 
 "let g:rspec_command = "!spring rspec {spec} --format documentation"
 let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec} --format documentation\n")'
 
- " RSpec.vim mappings
-  map <Leader>t :call RunCurrentSpecFile()<CR>
-  map <Leader>s :call RunNearestSpec()<CR>
-  map <Leader>l :call RunLastSpec()<CR>
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
 " map <Leader>e :call RunLastSpec()<CR>
- " map <Leader>a :call RunAllSpecs()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
  " let Vundle manage Vundle
  " required!
@@ -111,7 +111,6 @@ let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec} --format documenta
  " original repos on github
  Plugin 'tpope/vim-fugitive'
  Plugin 'Lokaltog/vim-easymotion'
- "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
  Plugin 'tpope/vim-rails.git'
  Plugin 'Lokaltog/vim-powerline'
  Plugin 'https://github.com/kien/ctrlp.vim'
@@ -119,14 +118,6 @@ let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec} --format documenta
  Plugin 'kchmck/vim-coffee-script'
  Plugin 'thoughtbot/vim-rspec'
  Plugin 'jgdavey/tslime.vim'
- " vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
- " non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
- " git repos on your local machine (ie. when working on your own plugin)
-" Bundle 'file:///Users/gmarik/path/to/plugin'
- " ...
 
 call vundle#end()
 filetype plugin indent on     " required!
