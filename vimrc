@@ -14,6 +14,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" show name of the file
+:command Name echo @%
+
 " open new splits to right and below
 set splitbelow
 set splitright
