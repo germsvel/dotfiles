@@ -70,9 +70,6 @@ let g:Powerline_symbols = 'fancy'
 " Kills beeps
 set noeb vb t_vb=
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
 " for terminal
 set t_Co=256
 
@@ -95,15 +92,15 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
  " map pasting
  map <Leader>p "0p<CR>
 
-"let g:rspec_command = "!spring rspec {spec} --format documentation"
 let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec} --format documentation\n")'
 
  " RSpec.vim mappings
   map <Leader>t :call RunCurrentSpecFile()<CR>
   map <Leader>s :call RunNearestSpec()<CR>
   map <Leader>l :call RunLastSpec()<CR>
-" map <Leader>e :call RunLastSpec()<CR>
- " map <Leader>a :call RunAllSpecs()<CR>
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
  " let Vundle manage Vundle
  " required!
@@ -122,6 +119,7 @@ let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec} --format documenta
  Plugin 'kchmck/vim-coffee-script'
  Plugin 'thoughtbot/vim-rspec'
  Plugin 'jgdavey/tslime.vim'
+ Plugin 'christoomey/vim-tmux-navigator'
  " vim-scripts repos
 " Bundle 'L9'
 " Bundle 'FuzzyFinder'
