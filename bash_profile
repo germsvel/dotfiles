@@ -1,54 +1,63 @@
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH=~/bin:$PATH
+# for elixir
 export PATH="$PATH:/path/to/elixir/bin"
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
+# alias ll="ls -lahG" export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
+#Cluster Duck
+# export twitter_consumer_key="v38KMxMSiuMTfdN4phNARA"
+# export twitter_consumer_secret="fCtNg3cHVN6yENkjA63qwkurj1gRKzMY9LErU2XKE"
 
-txtblk='\e[0;30m' # Black - Regular
-txtred='\e[0;31m' # Red
-txtgrn='\e[0;32m' # Green
-txtylw='\e[0;33m' # Yellow
-txtblu='\e[0;34m' # Blue
-txtpur='\e[0;35m' # Purple
-txtcyn='\e[0;36m' # Cyan
-txtwht='\e[0;37m' # White
-bldblk='\e[1;30m' # Black - Bold
-bldred='\e[1;31m' # Red
-bldgrn='\e[1;32m' # Green
-bldylw='\e[1;33m' # Yellow
-bldblu='\e[1;34m' # Blue
-bldpur='\e[1;35m' # Purple
-bldcyn='\e[1;36m' # Cyan
-bldwht='\e[1;37m' # White
-unkblk='\e[4;30m' # Black - Underline
-undred='\e[4;31m' # Red
-undgrn='\e[4;32m' # Green
-undylw='\e[4;33m' # Yellow
-undblu='\e[4;34m' # Blue
-undpur='\e[4;35m' # Purple
-undcyn='\e[4;36m' # Cyan
-undwht='\e[4;37m' # White
-bakblk='\e[40m'   # Black - Background
-bakred='\e[41m'   # Red
-badgrn='\e[42m'   # Green
-bakylw='\e[43m'   # Yellow
-bakblu='\e[44m'   # Blue
-bakpur='\e[45m'   # Purple
-bakcyn='\e[46m'   # Cyan
-bakwht='\e[47m'   # White
-txtrst='\e[0m'    # Text Reset
+#TwitterVis
+# export twitter_consumer_key="UNZHrPaMakj17UuSbr0OjA"
+# export twitter_consumer_secret="MpcZie9waGYK2zuJSgrqKJDuuqJ1M01uaQyH6CHrVtE"
 
+#tbot hashtag
+export twitter_consumer_key="fccuYNY2fAYTAY4PIrTbA"
+export twitter_consumer_secret="yodtrqyJgQosmueo0aPaefAoV8vpEJ8S9E9oQRuRA"
+
+export twitter_oauth_token="1129015764-0Njb8HCqr2ZzG1t7XBuoueUNzZYlwPhOS1UOHeM"
+export twitter_oauth_token_secret="ffSV1Mqi9uBzMcs83gMCRA1cta0d12GU8g7AinUlIU"
+
+# key for full contact
+export full_contact_key="6e7c29ce476a59c"
+
+# AWs Keys
+export provider='AWS'                        # required
+export aws_access_key_id='AKIAIVERAAWHGV4ZVCZQ'                        # required
+export aws_secret_access_key='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'
+
+# for RVM
+
+# show git branch on command line prompt
 function parse_git_branch () {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-print_before_the_prompt () {
-  printf "\n $txtwht%s: $bldgrn%s $txtred %s\n$txtrst" "$USER" "$PWD" "$(parse_git_branch)"
-}
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+NO_COLOUR="\[\033[0m\]"
 
-PROMPT_COMMAND=print_before_the_prompt
-PS1="-> "
+PS1="$NO_COLOUR\u$NO_COLOUR\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
+
+# Show path on bash name
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
+
+# load .profile
+source ~/.profile
+
+# open commit messages with mvim
+export EDITOR="mvim -w"
+
+# set alias git for hub gem
+eval "$(hub alias -s)"
+
+
+
+# for git completion
+source ~/git-completion.bash
+alias gco='git co'
+alias gci='git ci'
+alias grb='git rb'
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

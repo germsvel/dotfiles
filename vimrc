@@ -118,6 +118,7 @@ call vundle#begin()
  Plugin 'kchmck/vim-coffee-script'
  Plugin 'thoughtbot/vim-rspec'
  Plugin 'jgdavey/tslime.vim'
+ Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 filetype plugin indent on     " required!

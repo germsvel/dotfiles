@@ -1,6 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/gvelasco/eq/quote_unquote/lib/services/quotes'
-let g:netrw_dirhist_2='/Users/germsvel/Sites/laurenhoehnvelasco/lhv'
-let g:netrw_dirhist_3='/Users/germsvel/dotfiles/vim/bundle/Vundle.vim'
-let g:netrw_dirhist_4='/Users/germsvel/Sites/laurenhoehnvelasco/lhv'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/germsvel/Sites/learning_elixir/elixir/lib'
+let g:netrw_dirhist_2='/Users/germsvel/Sites/learning_elixir/elixir/lib/ex_unit'
+let g:netrw_dirhist_3='/Users/germsvel/Sites/learning_elixir/elixir/lib/ex_unit/lib'
+let g:netrw_dirhist_4='/Users/germsvel/Sites/learning_elixir/elixir/lib/ex_unit/lib/ex_unit'
+let g:netrw_dirhist_5='/Users/germsvel/Sites/learning_elixir/elixir/lib'
+let g:netrw_dirhist_6='/Users/germsvel/Sites/learning_elixir/elixir/lib/elixir'
+let g:netrw_dirhist_7='/Users/germsvel/Sites/learning_elixir/elixir/lib/elixir/lib'
+let g:netrw_dirhist_8='/Users/germsvel/Sites/learning_elixir/elixir/lib/elixir/lib/agent'
+let g:netrw_dirhist_9='/Users/germsvel/Sites/learning_elixir/elixir/lib/elixir/lib'
