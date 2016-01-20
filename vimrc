@@ -14,6 +14,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" show name of the file
+:command Name echo @%
+
 " open new splits to right and below
 set splitbelow
 set splitright
@@ -89,15 +92,12 @@ map <Leader>vm :exe "vertical resize 50"<CR>
 " map pasting
 map <Leader>p "0p<CR>
 
-"let g:rspec_command = "!spring rspec {spec} --format documentation"
 let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec} --format documentation\n")'
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-" map <Leader>e :call RunLastSpec()<CR>
-" map <Leader>a :call RunAllSpecs()<CR>
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -119,6 +119,15 @@ call vundle#begin()
  Plugin 'thoughtbot/vim-rspec'
  Plugin 'jgdavey/tslime.vim'
  Plugin 'elixir-lang/vim-elixir'
+ Plugin 'christoomey/vim-tmux-navigator'
+ " vim-scripts repos
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
+ " non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+ " git repos on your local machine (ie. when working on your own plugin)
+" Bundle 'file:///Users/gmarik/path/to/plugin'
+ " ...
 
 call vundle#end()
 filetype plugin indent on     " required!
