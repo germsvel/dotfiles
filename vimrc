@@ -92,7 +92,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
  " map pasting
  map <Leader>p "0p<CR>
 
-let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec} --format documentation\n")'
+let g:rspec_command = 'call Send_to_Tmux("bundle exec spring rspec {spec} --format documentation\n")'
 
  " RSpec.vim mappings
   map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -120,6 +120,7 @@ call vundle#begin()
  Plugin 'thoughtbot/vim-rspec'
  Plugin 'jgdavey/tslime.vim'
  Plugin 'christoomey/vim-tmux-navigator'
+ Plugin 'lambdatoast/elm.vim'
  " vim-scripts repos
 " Bundle 'L9'
 " Bundle 'FuzzyFinder'

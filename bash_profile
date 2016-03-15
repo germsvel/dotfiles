@@ -2,6 +2,7 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH=~/bin:$PATH
 export PATH="$PATH:/path/to/elixir/bin"
+export PATH="$PATH:/urs/local/bin"
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
