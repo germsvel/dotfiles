@@ -2,7 +2,10 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH=~/bin:$PATH
 export PATH="$PATH:/path/to/elixir/bin"
-export PATH="$PATH:/urs/local/bin"
+export PATH="$PATH:/usr/local/bin"
+
+alias vim='/usr/local/Cellar/vim/7.4.1864_1/bin/vim'
+alias run-tags='ctags -R --exclude=".git" .'
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
@@ -46,6 +49,12 @@ txtrst='\e[0m'    # Text Reset
 function parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+
+function checkout_branch () {
+  local branch=$(git branch | ag $1)
+  git checkout $branch
+}
+alias cob=checkout_branch
 
 print_before_the_prompt () {
   printf "\n $txtwht%s: $bldgrn%s $txtred %s\n$txtrst" "$USER" "$PWD" "$(parse_git_branch)"

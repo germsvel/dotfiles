@@ -7,15 +7,14 @@ set nowrap
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
+set backspace=2
+
 " Map Ctrl+[hjkl] to changing windows instead of needing to
 " press Ctrl+w and then [hjkl]
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" show name of the file
-:command Name echo @%
 
 " open new splits to right and below
 set splitbelow
@@ -36,6 +35,14 @@ set incsearch
 " Set relative numbers only when focused
 :au FocusGained * :set relativenumber
 :au FocusLost * :set number
+
+" Set fold method
+set foldmethod=syntax
+set nofoldenable
+"remap space to toggle folds
+nnoremap <Space> za
+"remap leader, space to close all folds and open fold where cursor is
+nnoremap <leader><Space> zMzv
 
 " Set colors
 syntax enable
@@ -89,8 +96,9 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
  map <Leader>v1 :exe "vertical resize 100"<CR>
  map <Leader>vm :exe "vertical resize 50"<CR>
 
- " map pasting
- map <Leader>p "0p<CR>
+ " clipboard yanking and pasting
+ map <Leader>y "+y<CR>
+ map <Leader>p "+p<CR>
 
 let g:rspec_command = 'call Send_to_Tmux("bundle exec spring rspec {spec} --format documentation\n")'
 
@@ -121,6 +129,10 @@ call vundle#begin()
  Plugin 'jgdavey/tslime.vim'
  Plugin 'christoomey/vim-tmux-navigator'
  Plugin 'lambdatoast/elm.vim'
+ Plugin 'elixir-lang/vim-elixir'
+ Plugin 'jlanzarotta/bufexplorer'
+ Plugin 'godlygeek/tabular'
+ Plugin 'tpope/vim-surround'
  " vim-scripts repos
 " Bundle 'L9'
 " Bundle 'FuzzyFinder'
