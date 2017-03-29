@@ -74,6 +74,9 @@ set copyindent
 " Required for vim-powerlinE
 let g:Powerline_symbols = 'fancy'
 
+" Use AG for ctrl-p
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
 " Kills beeps
 set noeb vb t_vb=
 
@@ -100,7 +103,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
  map <Leader>y "+y<CR>
  map <Leader>p "+p<CR>
 
-let g:rspec_command = 'call Send_to_Tmux("bundle exec spring rspec {spec} --format documentation\n")'
+let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec} --format documentation\n")'
 
  " RSpec.vim mappings
   map <Leader>t :call RunCurrentSpecFile()<CR>
