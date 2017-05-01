@@ -39,10 +39,10 @@ set incsearch
 " Set fold method
 set foldmethod=syntax
 set nofoldenable
-"remap space to toggle folds
-nnoremap <Space> za
-"remap leader, space to close all folds and open fold where cursor is
-nnoremap <leader><Space> zMzv
+
+"remap leader a to close all folds and open fold where cursor is
+nnoremap <leader>a zMzv
+nnoremap <leader>f za
 
 " Set colors
 syntax enable

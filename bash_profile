@@ -4,12 +4,15 @@ export PATH=~/bin:$PATH
 export PATH="$PATH:/path/to/elixir/bin"
 export PATH="$PATH:/usr/local/bin"
 
-alias vim='/usr/local/Cellar/vim/8.0.0194/bin/vim'
+export EDITOR= vim
+
+alias vim='/usr/local/Cellar/vim/8.0.0559/bin/vim'
 alias run-tags='ctags -R --exclude=".git" .'
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+
 
 
 txtblk='\e[0;30m' # Black - Regular
