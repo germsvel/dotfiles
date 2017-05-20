@@ -7,6 +7,8 @@ set nowrap
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
+let mapleader = "\<Space>"
+
 " Map Ctrl+[hjkl] to changing windows instead of needing to
 " press Ctrl+w and then [hjkl]
 map <C-h> <C-w>h
@@ -34,21 +36,23 @@ set smartcase
 set incsearch
 
 " Set fold options
-set foldmethod=syntax
-" when opening file leave it unfolded
-set foldlevelstart=20
-nnoremap <Space> za
-nnoremap <Leader><Space> zMzv
+" set foldmethod=syntax
+" set foldlevelstart=20 " leave file unfolded when opening
+" nnoremap <Leader>f za
+" nnoremap <Leader>F zMzv
 
 " Set text width to 80 characters for markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
+" Set conceal level to 2 for markdown (to hide links, italics, etc)
+au BufRead,BufNewFile *.md set conceallevel=2
+
 
 " Set colors
 syntax enable
 set background=dark
 "colorscheme crayon
 "colorscheme material
-"colorscheme solarized
+colorscheme solarized
 "colorscheme Desert
 "colorscheme railscasts
 "colorscheme Tomorrow "white background
@@ -104,6 +108,10 @@ let test#strategy = "tslime"
 let g:tslime_always_current_session = 1 "Assume current session
 let g:tslime_always_current_window = 1 "Assume current window
 "let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec} --format documentation\n")'
+"
+
+" Use AG for ctrl-p
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 
 " vim-test mappings
@@ -144,6 +152,10 @@ call vundle#begin()
  Plugin 'cakebaker/scss-syntax.vim'
  Plugin 'jlanzarotta/bufexplorer'
  Plugin 'tpope/vim-surround'
+ Plugin 'christoomey/vim-tmux-runner'
+ Plugin 'godlygeek/tabular.git'
+ Plugin 'plasticboy/vim-markdown'
+
 
 call vundle#end()
 filetype plugin indent on     " required!

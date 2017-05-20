@@ -1,5 +1,6 @@
 # for elixir
-export PATH="$PATH:/path/to/elixir/bin"
+export PATH="$PATH:/usr/local/bin/"
+export PATH="$PATH:/Users/germsvel/Sites/alf"
 
 # alias ll="ls -lahG" export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
@@ -21,8 +22,8 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 # load .profile
 source ~/.profile
 
-# open commit messages with mvim
-export EDITOR="mvim -w"
+# open commit messages with vim
+export EDITOR="vim"
 
 # set alias git for hub gem
 eval "$(hub alias -s)"
