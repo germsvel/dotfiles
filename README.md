@@ -1,2 +1,2 @@
-### dotfiles
--- That's about it
+## dotfiles
+These dotfiles can be combined with thoughtbot's dotfiles. 
