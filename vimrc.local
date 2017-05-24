@@ -7,9 +7,6 @@ set nowrap
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
-" show name of the file
-:command Name echo @%
-
 " Highlight matching parentheses
 set showmatch
 
@@ -46,6 +43,9 @@ set copyindent
 
 " Required for vim-powerlinE
 let g:Powerline_symbols = 'fancy'
+
+" auto format for elm
+let g:elm_format_autosave = 1
 
 " Kills beeps
 set noeb vb t_vb=
