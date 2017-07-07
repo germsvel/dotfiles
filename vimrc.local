@@ -47,6 +47,11 @@ let g:Powerline_symbols = 'fancy'
 " auto format for elm
 let g:elm_format_autosave = 1
 
+" testing strategy for vim-test
+let test#strategy = "tslime"
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+
 " Kills beeps
 set noeb vb t_vb=
 
