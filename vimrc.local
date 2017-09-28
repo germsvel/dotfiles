@@ -3,6 +3,9 @@ filetype off                   " required!
 
 set nowrap
 
+" remap jk to <ESC> because new mac book pros don't have esc!
+inoremap jk <ESC>
+
 " recommended configurations for powerline
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
@@ -85,7 +88,6 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " gist-vim configurations
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
-
 
 " help formatting json
 com! FormatJson %!python -m json.tool
