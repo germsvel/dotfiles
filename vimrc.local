@@ -28,7 +28,7 @@ set incsearch
 
 " Set colors
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " Set tab width
