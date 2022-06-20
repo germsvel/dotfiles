@@ -27,9 +27,17 @@ set incsearch
 :au FocusLost * :set number
 
 " Set colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme solarized8
+
 
 " Set tab width
 set tabstop=2
@@ -51,7 +59,9 @@ let g:Powerline_symbols = 'fancy'
 let g:elm_format_autosave = 1
 
 " testing strategy for vim-test
-let test#strategy = "tslime"
+" let test#strategy = "tslime"
+" let test#strategy = "vimterminal"
+let test#strategy = "vimux"
 let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 
@@ -59,6 +69,35 @@ let g:tslime_always_current_window = 1
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
 let g:mix_format_options = '--check-equivalent'
+
+
+let g:ale_linters = {
+      \  'elixir': ['credo', 'elixir-ls'],
+      \  'ruby': ['prettier', 'solargraph'],
+      \  'javascript': ['prettier', 'eslint', 'tsserver'],
+      \  'typescript': ['prettier', 'eslint', 'tsserver'],
+      \  'svelte': ['prettier', 'tsserver'],
+\}
+
+let g:ale_fixers = {
+      \  '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \  'javascript': ['prettier'],
+      \  'typescript': ['prettier'],
+      \  'svelte': ['prettier'],
+      \  'html': ['prettier'],
+      \  'ruby': ['prettier'],
+\}
+let g:ale_elixir_elixir_ls_config = {
+      \   'elixirLS': {
+      \     'dialyzerEnabled': v:false,
+      \   },
+      \}
+let g:ale_fix_on_save = 1
+
+" Svelte
+let g:svelte_preprocessors = ['typescript']
+let g:svelte_indent_script = 0
+let g:svelte_indent_style = 0
 
 " Some tslime mappings
 vmap <Leader>mt <Plug>SendSelectionToTmux
@@ -78,6 +117,9 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
  map <Leader>r :set relativenumber!<CR>
  map <Leader>e :set number<CR>
  map <Leader>n :set nonumber<CR>
+ map <Leader>pp :set paste<CR>
+ map <Leader>np :set nopaste<CR>
+ map <Leader>* :Ag <Ctrl-R><Ctrl-W><CR>
 
  " map vertical resizing
  map <Leader>v4 :exe "vertical resize 400"<CR>
@@ -85,6 +127,43 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
  map <Leader>v2 :exe "vertical resize 200"<CR>
  map <Leader>v1 :exe "vertical resize 100"<CR>
  map <Leader>vm :exe "vertical resize 50"<CR>
+
+" DisplayTableSummary plugin
+nnoremap <leader>dt :DisplayTableSummary<cr>
+nnoremap <leader>xt :call popup_clear()<cr>
+
+" COC stuff
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" " Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Trigger possible actions in COC
+nmap <leader>do <Plug>(coc-codeaction)
+
+let g:coc_global_extensions = ['coc-tsserver']
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+" autocmd FileType markdown let b:coc_suggest_disable = 1
+autocmd BufNew,BufEnter *.ts,*.svelte,*.js execute "silent! CocEnable"
+autocmd BufLeave *.ts,*.svelte,*.js execute "silent! CocDisable"
+
+" ALE mappings (mostly for ts)
+" nmap <silent> gd :ALEGoToDefinition<CR>
+" nmap <silent> gr :ALEFindReferences<CR>
+" nmap <silent> oi :ALEOrganizeImports<CR>
+" nmap K :ALEHover<CR>
+" let g:ale_completion_enabled=1
 
  " map pasting
  map <Leader>p "0p<CR>

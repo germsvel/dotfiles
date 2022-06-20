@@ -36,3 +36,6 @@ bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # copying to clip board
 bind-key -T copy-mode-vi Enter send-keys -X copy-pipe 'reattach-to-user-namespace pbcopy' \; send -X clear-selection
+
+# escape immediately instead of 500ms delay
+set -sg escape-time 0

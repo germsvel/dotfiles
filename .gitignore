@@ -1,2 +1,5 @@
 .DS_STORE
-
+notes.md
+notes*.*
+notes.sql
+.projections.json
